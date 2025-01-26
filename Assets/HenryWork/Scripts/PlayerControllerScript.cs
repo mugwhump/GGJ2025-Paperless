@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public class PlayerControllerScript : MonoBehaviour
 {
-    private static readonly int IsMoving = Animator.StringToHash("isMoving");
+    private static readonly int IS_MOVING_ANIMATOR = Animator.StringToHash("isMoving");
+    private static readonly int IS_GROUNDED_ANIMATOR = Animator.StringToHash("isGrounded");
     private static readonly int jumpTrig = Animator.StringToHash("JumpTrigger");
 
     // movement
@@ -86,19 +87,22 @@ public class PlayerControllerScript : MonoBehaviour
         playerRb.linearVelocity = new Vector2(moveSpeed * horizontalInput, playerRb.linearVelocity.y);
         facingRight = horizontalInput > 0 ? true : false;
 
+        // ================ Animator ==================================================================================
         if (horizontalInput != 0f)
         {
             if (IsGrounded())
             {
-                _animator.SetBool(IsMoving, true);
+                _animator.SetBool(IS_MOVING_ANIMATOR, true);
                 //playerCollider.offset = new Vector2(playerCollider.offset.x, -0.5f);
             }
         }
         else
         {
-            _animator.SetBool(IsMoving, false);
+            _animator.SetBool(IS_MOVING_ANIMATOR, false);
             //playerCollider.offset = initColliderOffset;
         }
+        
+        _animator.SetBool(IS_GROUNDED_ANIMATOR, isOnGround);
 
         //isOnGround = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.5f, 1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
 
@@ -122,12 +126,12 @@ public class PlayerControllerScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            ActionHandler(Inventory.Instance.GetSlotAt(0)?.keyword.keywordString);
+            ActionHandler(Inventory.Instance?.GetSlotAt(0)?.keyword?.keywordString);
         }
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            ActionHandler(Inventory.Instance.GetSlotAt(1)?.keyword.keywordString);
+            ActionHandler(Inventory.Instance?.GetSlotAt(1)?.keyword?.keywordString);
         }
 
         if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.L))
@@ -144,8 +148,6 @@ public class PlayerControllerScript : MonoBehaviour
         {
             _spriteRenderer.flipX = true;
         }
-
-
     }
 
     private void ActionHandler(string action)
