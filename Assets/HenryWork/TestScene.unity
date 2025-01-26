@@ -139,6 +139,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1960645208284331774, guid: a4bc28c7e6fa0dc43805c4537118d0ae,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.0389671
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960645208284331774, guid: a4bc28c7e6fa0dc43805c4537118d0ae,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 1.0319653
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960645208284331774, guid: a4bc28c7e6fa0dc43805c4537118d0ae,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.49999997
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960645208284331774, guid: a4bc28c7e6fa0dc43805c4537118d0ae,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.01526638
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960645208284331774, guid: a4bc28c7e6fa0dc43805c4537118d0ae,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960645208284331774, guid: a4bc28c7e6fa0dc43805c4537118d0ae,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.6
+      objectReference: {fileID: 0}
     - target: {fileID: 2861204768468805715, guid: a4bc28c7e6fa0dc43805c4537118d0ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -147,7 +177,7 @@ PrefabInstance:
     - target: {fileID: 2861204768468805715, guid: a4bc28c7e6fa0dc43805c4537118d0ae,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.13861386
+      value: -1.63
       objectReference: {fileID: 0}
     - target: {fileID: 2861204768468805715, guid: a4bc28c7e6fa0dc43805c4537118d0ae,
         type: 3}
@@ -848,6 +878,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AbilityContainer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4506699334172375060, guid: f1a6833e63d41984997ede6191a4626f,
+        type: 3}
+      propertyPath: m_TagString
+      value: AbilityContainerTag
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

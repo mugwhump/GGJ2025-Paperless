@@ -4,9 +4,10 @@ using UnityEngine.UI;
 public class PlayerControllerScript : MonoBehaviour
 {
     private static readonly int IsMoving = Animator.StringToHash("isMoving");
+    private static readonly int jumpTrig = Animator.StringToHash("JumpTrigger");
 
     // movement
-    public float moveSpeed = 5f;
+    public float moveSpeed = 0f;
     public float pushForce = 100000;
     private bool isCrouching = false;
 
@@ -15,13 +16,13 @@ public class PlayerControllerScript : MonoBehaviour
     private Rigidbody2D playerRb;
 
     //public Transform groundCheck;
+    //public LayerMask groundLayer;
     // jump
     [SerializeField] private float jumpForce = 20.0f;
     private Vector2 initColliderSize; //modify via the editor, store the initial dimensions
     private Vector2 initColliderOffset; //modify via the editor, store the initial dimensions
     // ground check for jump
     private bool isOnGround = true;
-    public LayerMask groundLayer;
 
     // set button action
     public string actionButtonA;
@@ -81,6 +82,21 @@ public class PlayerControllerScript : MonoBehaviour
 
     void Update()
     {
+
+        if (moveSpeed != 0f)
+        {
+            if (IsGrounded())
+            {
+                _animator.SetBool(IsMoving, true);
+                //playerCollider.offset = new Vector2(playerCollider.offset.x, -0.5f);
+            }
+        }
+        else
+        {
+            _animator.SetBool(IsMoving, false);
+            //playerCollider.offset = initColliderOffset;
+        }
+
         //isOnGround = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.5f, 1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
 
         isOnGround = IsGrounded();
@@ -130,6 +146,8 @@ public class PlayerControllerScript : MonoBehaviour
         {
             _spriteRenderer.flipX = true;
         }
+
+
     }
 
     private void ActionHandler(string action)
@@ -163,20 +181,9 @@ public class PlayerControllerScript : MonoBehaviour
         }
 
         // Compare only x and y components for 2D movement
-        Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
-        if(_lastPosition != currentPosition) 
-        {
-            //if(isOnGround)
-            if(IsGrounded())  
-            {
-                _animator.SetBool(IsMoving, true);
-            }
-        }
-        else
-        {
-            _animator.SetBool(IsMoving, false);
-        }
-        _lastPosition = currentPosition;
+        //Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
+        //if(_lastPosition != currentPosition) 
+        //_lastPosition = currentPosition;
     }
 
     // -------------------- action functions -------------------- // 
@@ -189,6 +196,7 @@ public class PlayerControllerScript : MonoBehaviour
         //playerCollider.offset = new Vector2(0f, 0f); //better to handle the offset via the editor
         jumpForce = 20f;
         isCrouching = false;
+        Debug.Log(moveSpeed);
         foreach (Image img in buttonImgs)
         {
             img.color = Color.white; 
@@ -261,6 +269,7 @@ public class PlayerControllerScript : MonoBehaviour
     public void Jump()
     {
         playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, jumpForce);
+        _animator.SetTrigger("JumpTrigger");
     }
 
     //private void OnCollisionEnter2D(Collision2D collision)
