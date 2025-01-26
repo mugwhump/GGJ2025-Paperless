@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      burrowed_speech_title_0: -7609758871454905453
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
