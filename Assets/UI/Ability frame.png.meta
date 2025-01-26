@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 2309677875d97ec48affc37ee46984b2
+guid: 8ba2c0cdbd495bb4b8abac09de44dc0e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5250829904731150859
-    second: ability bubble_0
+      213: -1473404105880901936
+    second: Ability frame_0
   - first:
-      213: -3800349696521980107
-    second: ability bubble_1
+      213: 5906957997200685241
+    second: Ability frame_1
   - first:
-      213: 2429647772164578056
-    second: ability bubble_2
+      213: 5768042129887646237
+    second: Ability frame_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,12 +52,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 300
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,7 +106,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ability bubble_0
+      name: Ability frame_0
       rect:
         serializedVersion: 2
         x: 77
@@ -121,14 +121,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b0a9f7f6af1bed840800000000000000
-      internalID: 5250829904731150859
+      spriteID: 0d6ed5aa5ca6d8be0800000000000000
+      internalID: -1473404105880901936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ability bubble_1
+      name: Ability frame_1
       rect:
         serializedVersion: 2
         x: 778
@@ -143,14 +143,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5373b8c0612724bc0800000000000000
-      internalID: -3800349696521980107
+      spriteID: 9b8bc46800bb9f150800000000000000
+      internalID: 5906957997200685241
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ability bubble_2
+      name: Ability frame_2
       rect:
         serializedVersion: 2
         x: 824
@@ -165,8 +165,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 80b5035a6c7d7b120800000000000000
-      internalID: 2429647772164578056
+      spriteID: d12d079b1c33c0050800000000000000
+      internalID: 5768042129887646237
       vertices: []
       indices: 
       edges: []
@@ -175,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -184,10 +184,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      ability bubble_0: 5250829904731150859
-      ability bubble_1: -3800349696521980107
-      ability bubble_2: 2429647772164578056
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
