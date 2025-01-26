@@ -17,10 +17,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void StartGame() {
-        SceneManager.LoadScene("TileMapScene");
+        SceneManager.LoadScene("TileMapScene_test");
     }
     
     public void WinGame() {
-        SceneManager.LoadScene("Victory_Screen");
+        SceneManager.LoadScene("Main_Menu");
     }
 }
