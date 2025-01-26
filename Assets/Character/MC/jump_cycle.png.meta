@@ -1,0 +1,325 @@
+fileFormatVersion: 2
+guid: d503e39cc42184347927d4eb6d134297
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3246393649547875030
+    second: jump_cycle_0
+  - first:
+      213: -6108080211549738069
+    second: jump_cycle_1
+  - first:
+      213: 6533868058682798096
+    second: jump_cycle_2
+  - first:
+      213: 5341315039224025801
+    second: jump_cycle_3
+  - first:
+      213: 3148466640646941943
+    second: jump_cycle_4
+  - first:
+      213: 4824945503625726732
+    second: jump_cycle_5
+  - first:
+      213: -4974074558224770639
+    second: jump_cycle_6
+  - first:
+      213: 6634240724414754164
+    second: jump_cycle_7
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: jump_cycle_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 1
+        width: 92
+        height: 258
+      alignment: 9
+      pivot: {x: 0.48542446, y: 0.003637069}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e9440409aa12904cb49f938cdf5569e
+      internalID: -1957040652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_cycle_1
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 228
+        width: 21
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3cfeaa9942e7f7458047cb5486f062d
+      internalID: -795275798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_cycle_2
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 1
+        width: 87
+        height: 262
+      alignment: 9
+      pivot: {x: 0.50000036, y: 0.003537807}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 999046fd745037844a50cbae7a5c9ed8
+      internalID: 241590273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_cycle_3
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 226
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70dab739c7817b544b3613dbec609a94
+      internalID: -539557299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_cycle_4
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 1
+        width: 90
+        height: 262
+      alignment: 9
+      pivot: {x: 0.50745034, y: 0.0009787233}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb2b31fde99baad4694b6f9b8eaec9b3
+      internalID: -1539799644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_cycle_5
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 1
+        width: 101
+        height: 222
+      alignment: 9
+      pivot: {x: 0.5000002, y: 0.007710836}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cf2eb20ba116bd45975637c551d119c
+      internalID: -856644761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_cycle_6
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 1
+        width: 101
+        height: 225
+      alignment: 9
+      pivot: {x: 0.49336198, y: 0.008314808}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de9ce010165080e4b9d3f83d6f1b65c6
+      internalID: 70263873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_cycle_7
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 218
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78dd28a1476ce95428b1ad8764a7c769
+      internalID: -1959447765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4603efe65ccfb7648a90a2640c632bf0
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      jump_cycle_0: -1957040652
+      jump_cycle_1: -795275798
+      jump_cycle_2: 241590273
+      jump_cycle_3: -539557299
+      jump_cycle_4: -1539799644
+      jump_cycle_5: -856644761
+      jump_cycle_6: 70263873
+      jump_cycle_7: -1959447765
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
