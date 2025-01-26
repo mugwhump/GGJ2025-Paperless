@@ -46,7 +46,7 @@ namespace GGJ2025_Paperless.Assets.Scripts.Paperless.Inventory
         public void Enable(Vector3 position, IKeywordSource keywordSource)
         {
             gameObject.SetActive(true);
-            transform.position = position + new Vector3(-3.66f, 3f, 0);
+            transform.position = position + new Vector3(-1f, 3f, 0);
             UpdateText();
             this.keywordSource = keywordSource;
         }

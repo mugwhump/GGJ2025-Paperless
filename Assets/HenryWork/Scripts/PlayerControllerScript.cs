@@ -196,7 +196,7 @@ public class PlayerControllerScript : MonoBehaviour
         //playerCollider.offset = new Vector2(0f, 0f); //better to handle the offset via the editor
         jumpForce = 20f;
         isCrouching = false;
-        Debug.Log(moveSpeed);
+        // Debug.Log(moveSpeed);
         //foreach (Image img in buttonImgs)
         //{
         //    img.color = Color.white; 

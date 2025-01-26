@@ -24,10 +24,14 @@ namespace GGJ2025_Paperless.Assets.Scripts.Paperless.Inventory
             return template;
         }
         
-        [Button]
-        private void UpdateText()
+        public void ShowDialogue()
         {
             Conversation.Instance.Enable(transform.position, this);
+        }
+        
+        public void HideDialogue()
+        {
+            Conversation.Instance?.Disable();
         }
     }
 }
