@@ -7,7 +7,6 @@ public class PlayerControllerScript : MonoBehaviour
 
     // movement
     public float moveSpeed = 5f;
-    public float sprintSpeed = 10f;
     public float pushForce = 100000;
     private bool isCrouching = false;
 
@@ -185,6 +184,8 @@ public class PlayerControllerScript : MonoBehaviour
 
     private void ResetPlayer()
     {
+        moveSpeed = 0;
+        playerRb.linearVelocity = new Vector2(0, playerRb.linearVelocity.y);
         playerCollider.size = initColliderSize;
         //playerCollider.offset = new Vector2(0f, 0f); //better to handle the offset via the editor
         jumpForce = 20f;
@@ -192,27 +193,31 @@ public class PlayerControllerScript : MonoBehaviour
     }
     private void HandleInputLeft()
     {
-        playerRb.linearVelocity = new Vector2(-moveSpeed, playerRb.linearVelocity.y);
+        moveSpeed = -5f;
+        playerRb.linearVelocity = new Vector2(moveSpeed, playerRb.linearVelocity.y);
         facingRight = false;
     }
 
     private void HandleInputRight()
     {
+        moveSpeed = 5f;
         playerRb.linearVelocity = new Vector2(moveSpeed, playerRb.linearVelocity.y);
         facingRight = true;
     }
 
     private void HandleSprintLeft()
     {
+        moveSpeed = -10f;
         jumpForce = 30f;
-        playerRb.linearVelocity = new Vector2(-sprintSpeed, playerRb.linearVelocity.y);
+        playerRb.linearVelocity = new Vector2(moveSpeed, playerRb.linearVelocity.y);
         facingRight = false;
     }
 
     private void HandleSprintRight()
     {
+        moveSpeed = 10f;
         jumpForce = 30f;
-        playerRb.linearVelocity = new Vector2(sprintSpeed, playerRb.linearVelocity.y);
+        playerRb.linearVelocity = new Vector2(moveSpeed, playerRb.linearVelocity.y);
         facingRight = true;
     }
     private void HandleJump()
