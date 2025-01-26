@@ -6,14 +6,14 @@ public class PlayerControllerScript : MonoBehaviour
     // movement
     public float moveSpeed = 5f;
     public float sprintSpeed = 10f;
-    public bool moveLeft = false;
-    public bool moveRight = false;
-    public bool doJump = false;
+    public Vector2 initColliderSize = new Vector2(1.0f, 2.63f);
+    private bool isCrouching = false;
 
     // jump
-    [SerializeField] private float jumpForce = 5.0f;
+    [SerializeField] private float jumpForce = 20.0f;
     private bool isOnGround = true;
     private Rigidbody2D playerRb;
+    private BoxCollider2D playerCollider;
 
     // set button action
     public string actionButtonA;
@@ -32,10 +32,13 @@ public class PlayerControllerScript : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<BoxCollider2D>();
+        Debug.Log("Initial Size: " + playerCollider.size);
+
         actionButtonA = "MoveLeft";
         actionButtonD = "SprintRight";
         actionButtonK = "Jump";
-        actionButtonL = "Jump";
+        actionButtonL = "Crouch";
     }
 
     void Update()
@@ -46,23 +49,43 @@ public class PlayerControllerScript : MonoBehaviour
         buttonK.targetGraphic.color = Input.GetKey(KeyCode.K) ? buttonK.colors.pressedColor : buttonK.colors.normalColor;
         buttonL.targetGraphic.color = Input.GetKey(KeyCode.L) ? buttonL.colors.pressedColor : buttonL.colors.normalColor;
 
+        if (!isOnGround)
+        {
+            playerCollider.size = new Vector2(1.0f, 3.0f);
+            Debug.Log(playerCollider.size);
+        }
+        else if (isOnGround && !isCrouching)
+        {
+            playerCollider.size = initColliderSize;
+        }
         
         if (Input.GetKey(KeyCode.A))
         {
             ActionHandler(actionButtonA);
         }
+
         if (Input.GetKey(KeyCode.D))
         {
             ActionHandler(actionButtonD);
         }
-        if (Input.GetKey(KeyCode.K))
+
+        if (Input.GetKeyDown(KeyCode.K))
         {
             ActionHandler(actionButtonK);
         }
-        if (Input.GetKey(KeyCode.L))
+
+        if (Input.GetKeyDown(KeyCode.L))
         {
             ActionHandler(actionButtonL);
+            Debug.Log(playerCollider.size);
         }
+
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.L))
+        {
+            ResetPlayer();
+        }
+
+
     }
 
 
@@ -86,15 +109,24 @@ public class PlayerControllerScript : MonoBehaviour
                 HandleJump();
                 break;
             case "Crouch":
-                HandleCrouch();
+                HandleCrouch(new Vector2(1.0f, 1.0f));
                 break;
             default:
+                ResetPlayer();
                 break;
         }
 
     }
 
     // -------------------- action functions -------------------- // 
+
+    private void ResetPlayer()
+    {
+        playerCollider.size = initColliderSize;
+        playerCollider.offset = new Vector2(0f, 0f);
+        jumpForce = 20f;
+        isCrouching = false;
+    }
     private void HandleInputLeft()
     {
         transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
@@ -106,13 +138,14 @@ public class PlayerControllerScript : MonoBehaviour
     }
     private void HandleSprintLeft()
     {
+        jumpForce = 30f;
         transform.Translate(Vector3.left * sprintSpeed * Time.deltaTime);
-        jumpForce = 7f;
+
     }
     private void HandleSprintRight()
     {
+        jumpForce = 30f;
         transform.Translate(Vector3.right * sprintSpeed * Time.deltaTime);
-        jumpForce = 7f;
     }
     private void HandleJump()
     {
@@ -121,8 +154,11 @@ public class PlayerControllerScript : MonoBehaviour
             Jump();
         }
     }
-    private void HandleCrouch()
+    private void HandleCrouch(Vector2 newSize)
     {
+        isCrouching = true;
+        playerCollider.offset = new Vector2(0f, -0.7f);
+        playerCollider.size = newSize;
 
     }
 

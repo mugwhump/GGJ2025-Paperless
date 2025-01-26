@@ -43,7 +43,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Fade: 1
-    - _Scale: 51.6
+    - _Scale: 21.25
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
