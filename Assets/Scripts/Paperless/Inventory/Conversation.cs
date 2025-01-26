@@ -84,6 +84,7 @@ namespace GGJ2025_Paperless.Assets.Scripts.Paperless.Inventory
                     var currentKeyword = Inventory.Instance.GetSlotAt(slotIndex).keyword;
                     Inventory.Instance.SetSlotAt(slotIndex, keywordSource?.GetKeyword());
                     keywordSource?.SetKeyword(currentKeyword);
+                    UpdateText();
                     keywordExchanged = true; 
                 }
             }
