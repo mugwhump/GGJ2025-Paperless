@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: b0848313941664341b46cf9b8d1b24c0
+guid: d503e39cc42184347927d4eb6d134297
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4324568939255721750
-    second: flipbook_walk_0
+      213: 3246393649547875030
+    second: jump_cycle_0
   - first:
-      213: -1518910990036716456
-    second: flipbook_walk_1
+      213: -6108080211549738069
+    second: jump_cycle_1
   - first:
-      213: -5246675577850398939
-    second: flipbook_walk_2
+      213: 6533868058682798096
+    second: jump_cycle_2
   - first:
-      213: -818066633234852700
-    second: flipbook_walk_3
+      213: 5341315039224025801
+    second: jump_cycle_3
   - first:
-      213: -6617946521685109116
-    second: flipbook_walk_4
+      213: 3148466640646941943
+    second: jump_cycle_4
   - first:
-      213: 2197226532055975973
-    second: flipbook_walk_5
+      213: 4824945503625726732
+    second: jump_cycle_5
   - first:
-      213: -8578844332067704643
-    second: flipbook_walk_6
+      213: -4974074558224770639
+    second: jump_cycle_6
   - first:
-      213: 4512627962633291147
-    second: flipbook_walk_7
+      213: 6634240724414754164
+    second: jump_cycle_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -121,144 +121,34 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: flipbook_walk_0
+      name: jump_cycle_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
-        width: 137
-        height: 329
-      alignment: 9
-      pivot: {x: 0.46468264, y: 0.014682259}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 56bae994c835578488afb6dcc2aa631d
-      internalID: 1312789985
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: flipbook_walk_1
-      rect:
-        serializedVersion: 2
-        x: 145
-        y: 311
-        width: 13
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 38363b6d940782345bf6fb3a6948ddea
-      internalID: 1003471313
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: flipbook_walk_2
-      rect:
-        serializedVersion: 2
-        x: 165
-        y: 4
-        width: 138
-        height: 315
-      alignment: 9
-      pivot: {x: 0.49999988, y: 0.010392794}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b919c7a9971e3ef4c8a006d2c62b653a
-      internalID: 1132745110
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: flipbook_walk_3
-      rect:
-        serializedVersion: 2
-        x: 303
-        y: 0
-        width: 136
-        height: 325
-      alignment: 9
-      pivot: {x: 0.4911057, y: 0.01057008}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 052a54d7681d7a64c9204b2254c327d5
-      internalID: 242912351
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: flipbook_walk_4
-      rect:
-        serializedVersion: 2
-        x: 161
-        y: 43
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6600a6288410d274f83ef0afd0b60b1a
-      internalID: 1762117792
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: flipbook_walk_5
-      rect:
-        serializedVersion: 2
-        x: 439
+        x: 22
         y: 1
-        width: 132
-        height: 309
+        width: 92
+        height: 258
       alignment: 9
-      pivot: {x: 0.49083593, y: 0.016544376}
+      pivot: {x: 0.48542446, y: 0.003637069}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2686e8fc09642a478118df8cd102afe
-      internalID: -1882826303
+      spriteID: 1e9440409aa12904cb49f938cdf5569e
+      internalID: -1957040652
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flipbook_walk_6
+      name: jump_cycle_1
       rect:
         serializedVersion: 2
-        x: 152
-        y: 26
-        width: 9
+        x: 198
+        y: 228
+        width: 21
         height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -268,20 +158,42 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c64eccefa441d048a0c411472ff5f6c
-      internalID: 1214328717
+      spriteID: e3cfeaa9942e7f7458047cb5486f062d
+      internalID: -795275798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flipbook_walk_7
+      name: jump_cycle_2
       rect:
         serializedVersion: 2
-        x: 164
-        y: 22
-        width: 4
-        height: 4
+        x: 263
+        y: 1
+        width: 87
+        height: 262
+      alignment: 9
+      pivot: {x: 0.50000036, y: 0.003537807}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 999046fd745037844a50cbae7a5c9ed8
+      internalID: 241590273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_cycle_3
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 226
+        width: 8
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -290,8 +202,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb8aeb20a4a15744485af6559a2adf76
-      internalID: -1243908456
+      spriteID: 70dab739c7817b544b3613dbec609a94
+      internalID: -539557299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_cycle_4
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 1
+        width: 90
+        height: 262
+      alignment: 9
+      pivot: {x: 0.50745034, y: 0.0009787233}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb2b31fde99baad4694b6f9b8eaec9b3
+      internalID: -1539799644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_cycle_5
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 1
+        width: 101
+        height: 222
+      alignment: 9
+      pivot: {x: 0.5000002, y: 0.007710836}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cf2eb20ba116bd45975637c551d119c
+      internalID: -856644761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_cycle_6
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 1
+        width: 101
+        height: 225
+      alignment: 9
+      pivot: {x: 0.49336198, y: 0.008314808}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de9ce010165080e4b9d3f83d6f1b65c6
+      internalID: 70263873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: jump_cycle_7
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 218
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78dd28a1476ce95428b1ad8764a7c769
+      internalID: -1959447765
       vertices: []
       indices: 
       edges: []
@@ -300,7 +300,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2fc2bba82eba09c4ba1a14d2ee8c3df9
+    spriteID: 4603efe65ccfb7648a90a2640c632bf0
     internalID: 0
     vertices: []
     indices: 
@@ -310,14 +310,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      flipbook_walk_0: 1312789985
-      flipbook_walk_1: 1003471313
-      flipbook_walk_2: 1132745110
-      flipbook_walk_3: 242912351
-      flipbook_walk_4: 1762117792
-      flipbook_walk_5: -1882826303
-      flipbook_walk_6: 1214328717
-      flipbook_walk_7: -1243908456
+      jump_cycle_0: -1957040652
+      jump_cycle_1: -795275798
+      jump_cycle_2: 241590273
+      jump_cycle_3: -539557299
+      jump_cycle_4: -1539799644
+      jump_cycle_5: -856644761
+      jump_cycle_6: 70263873
+      jump_cycle_7: -1959447765
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
