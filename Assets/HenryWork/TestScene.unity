@@ -1043,6 +1043,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1960645208284331774, guid: a4bc28c7e6fa0dc43805c4537118d0ae,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2861204768468805715, guid: a4bc28c7e6fa0dc43805c4537118d0ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1093,6 +1098,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6105797839268966972, guid: a4bc28c7e6fa0dc43805c4537118d0ae,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7486117395936374345, guid: a4bc28c7e6fa0dc43805c4537118d0ae,
         type: 3}
       propertyPath: buttonA
@@ -1113,6 +1123,11 @@ PrefabInstance:
       propertyPath: buttonL
       value: 
       objectReference: {fileID: 1458872487}
+    - target: {fileID: 7486117395936374345, guid: a4bc28c7e6fa0dc43805c4537118d0ae,
+        type: 3}
+      propertyPath: jumpForce
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7863147149180993015, guid: a4bc28c7e6fa0dc43805c4537118d0ae,
         type: 3}
       propertyPath: m_Name
