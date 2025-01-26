@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Sprint
   m_EditorClassIdentifier: 
   keywordString: Sprint
-  icon: {fileID: -7703584424226310029, guid: 62b7ca5fd2bb82b46b1fac2a341041e7, type: 3}
+  icon: {fileID: 21300000, guid: 62b7ca5fd2bb82b46b1fac2a341041e7, type: 3}
