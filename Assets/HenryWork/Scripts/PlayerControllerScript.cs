@@ -33,7 +33,7 @@ public class PlayerControllerScript : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody2D>();
         actionButtonA = "MoveLeft";
-        actionButtonD = "MoveRight";
+        actionButtonD = "SprintRight";
         actionButtonK = "Jump";
         actionButtonL = "Jump";
     }
@@ -76,10 +76,17 @@ public class PlayerControllerScript : MonoBehaviour
             case "MoveRight":
                 HandleInputRight(); 
                 break;
+            case "SprintLeft":
+                HandleSprintLeft();
+                break;
+            case "SprintRight":
+                HandleSprintRight();
+                break;
             case "Jump":
                 HandleJump();
                 break;
-            case "Push":
+            case "Crouch":
+                HandleCrouch();
                 break;
             default:
                 break;
@@ -97,10 +104,15 @@ public class PlayerControllerScript : MonoBehaviour
     {
         transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
     }
-
-    private void Sprint()
+    private void HandleSprintLeft()
     {
         transform.Translate(Vector3.left * sprintSpeed * Time.deltaTime);
+        jumpForce = 7f;
+    }
+    private void HandleSprintRight()
+    {
+        transform.Translate(Vector3.right * sprintSpeed * Time.deltaTime);
+        jumpForce = 7f;
     }
     private void HandleJump()
     {
@@ -108,6 +120,10 @@ public class PlayerControllerScript : MonoBehaviour
         {
             Jump();
         }
+    }
+    private void HandleCrouch()
+    {
+
     }
 
     public void Jump()
