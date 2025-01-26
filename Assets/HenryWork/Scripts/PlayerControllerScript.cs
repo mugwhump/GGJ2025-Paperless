@@ -130,13 +130,14 @@ public class PlayerControllerScript : MonoBehaviour
         {
             ActionHandler(Inventory.Instance?.GetSlotAt(0)?.keyword?.keywordString);
         }
-
+        
         if (Input.GetKeyDown(KeyCode.L))
         {
             ActionHandler(Inventory.Instance?.GetSlotAt(1)?.keyword?.keywordString);
         }
 
-        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.L))
+
+        if (Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.L))
         {
             ResetPlayer();
         }
@@ -199,7 +200,6 @@ public class PlayerControllerScript : MonoBehaviour
         moveSpeed = 5f;
         playerRb.linearVelocity = new Vector2(0, playerRb.linearVelocity.y);
         playerCollider.size = initColliderSize;
-        //playerCollider.offset = new Vector2(0f, 0f); //better to handle the offset via the editor
         jumpForce = 25f;
         isCrouching = false;
 
