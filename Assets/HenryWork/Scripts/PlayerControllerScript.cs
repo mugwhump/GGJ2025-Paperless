@@ -109,25 +109,25 @@ public class PlayerControllerScript : MonoBehaviour
         
         if (Input.GetKey(KeyCode.A))
         {
-            buttonImgs[0].color = new Color(1, 1, 1, 0.5f);
+            //buttonImgs[0].color = new Color(1, 1, 1, 0.5f);
             ActionHandler(actionButtonA);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            buttonImgs[1].color = new Color(1, 1, 1, 0.5f);
+            //buttonImgs[1].color = new Color(1, 1, 1, 0.5f);
             ActionHandler(actionButtonD);
         }
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            buttonImgs[2].color = new Color(1, 1, 1, 0.5f);
+            //buttonImgs[2].color = new Color(1, 1, 1, 0.5f);
             ActionHandler(actionButtonK);
         }
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            buttonImgs[3].color = new Color(1, 1, 1, 0.5f);
+            //buttonImgs[3].color = new Color(1, 1, 1, 0.5f);
             ActionHandler(actionButtonL);
             Debug.Log(playerCollider.size);
         }
@@ -197,10 +197,10 @@ public class PlayerControllerScript : MonoBehaviour
         jumpForce = 20f;
         isCrouching = false;
         Debug.Log(moveSpeed);
-        foreach (Image img in buttonImgs)
-        {
-            img.color = Color.white; 
-        }
+        //foreach (Image img in buttonImgs)
+        //{
+        //    img.color = Color.white; 
+        //}
     }
     private void HandleInputLeft()
     {
