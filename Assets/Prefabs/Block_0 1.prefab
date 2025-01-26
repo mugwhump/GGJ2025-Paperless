@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6708368100736301611}
   - component: {fileID: 8944780734177650721}
   m_Layer: 0
-  m_Name: Block_0
+  m_Name: Block_0 1
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1984336806617920913}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.6064, y: -2.5956, z: -1.4210793}
+  m_LocalPosition: {x: 1.6064, y: -1.308, z: -1.4210793}
   m_LocalScale: {x: 0.22715172, y: 0.6168674, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78,13 +78,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9186619782271514838, guid: 1e3334d62778fb548ae5bb7ac7bb9fa5,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: db5ae4c60c2264eb88d32cdb06e1f858, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 52.854992, y: 6.6974}
+  m_Size: {x: 52.854992, y: 2.522863}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -129,12 +128,12 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2.56, y: 2.56}
-    newSize: {x: 52.854992, y: 6.6974}
+    newSize: {x: 52.854992, y: 2.522863}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 53.14, y: 6.74}
+  m_Size: {x: 53, y: 2.55}
   m_EdgeRadius: 0
 --- !u!50 &8944780734177650721
 Rigidbody2D:
