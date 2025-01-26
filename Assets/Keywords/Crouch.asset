@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63765846ee2fc504ca22876dfbd2604c, type: 3}
-  m_Name: Sprint 1
+  m_Name: Crouch
   m_EditorClassIdentifier: 
   keywordString: Crouch
-  icon: {fileID: 21300038, guid: 1a4bd6d8b694c4f65869fe4d44a0198b, type: 3}
+  icon: {fileID: -2502152054627867837, guid: 57f58a23cd9c8bf4285d7762cc9ec48d, type: 3}
