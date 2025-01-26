@@ -7,6 +7,7 @@ public class PlayerControllerScript : MonoBehaviour
     public float moveSpeed = 5f;
     public float sprintSpeed = 10f;
     public Vector2 initColliderSize = new Vector2(1.0f, 2.63f);
+    public float pushForce = 100000;
     private bool isCrouching = false;
 
     private bool facingRight = true;
@@ -192,12 +193,17 @@ public class PlayerControllerScript : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position + (facingRight ? Vector3.right : Vector3.left), 
         (facingRight ? Vector2.right : Vector2.left) * 3, moveSpeed * 3); 
         if(hit && hit.transform.gameObject.CompareTag("Pushable")) {
-            Debug.Log(hit);
+            //Debug.Log(hit);
             if(hit.transform.GetComponent<PlayerControllerScript>() != null) {
                 //Debug.Log("aw fug");
             }
             else {
                 hit.transform.Translate((facingRight ? Vector3.right : Vector3.left) * moveSpeed * 2 * Time.deltaTime);
+                Debug.Log("Push!");
+                Rigidbody2D rb = hit.transform.GetComponent<Rigidbody2D>();
+                if(rb != null){
+                    rb.AddForceX(pushForce * (facingRight ? 1 : -1));
+                }            
             }
         }
     }
