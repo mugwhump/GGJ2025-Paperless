@@ -6,7 +6,6 @@ public class PlayerControllerScript : MonoBehaviour
     // movement
     public float moveSpeed = 5f;
     public float sprintSpeed = 10f;
-    public Vector2 initColliderSize = new Vector2(1.0f, 2.63f);
     public float pushForce = 100000;
     private bool isCrouching = false;
 
@@ -17,6 +16,8 @@ public class PlayerControllerScript : MonoBehaviour
     private bool isOnGround = true;
     private Rigidbody2D playerRb;
     private BoxCollider2D playerCollider;
+    private Vector2 initColliderSize; //modify via the editor, store the initial dimensions
+    private Vector2 initColliderOffset; //modify via the editor, store the initial dimensions
 
     // set button action
     public string actionButtonA;
@@ -41,6 +42,17 @@ public class PlayerControllerScript : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+
+    }
+
+    void Start()
+    {
+        playerRb = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<BoxCollider2D>();
+        Debug.Log("Initial Size: " + playerCollider.size); 
+        initColliderSize = playerCollider.size;       
+        initColliderOffset = playerCollider.offset;
+        
         GameObject bc = GameObject.FindWithTag("ButtonContainerTag");
         if(bc != null) {
             buttonA = bc.gameObject.transform.GetChild(0).GetComponent<Button>();
@@ -51,18 +63,12 @@ public class PlayerControllerScript : MonoBehaviour
         else {
             Debug.Log("Couldn't find Object with ButtonContainer tag!");
         }
-    }
-
-    void Start()
-    {
-        playerRb = GetComponent<Rigidbody2D>();
-        playerCollider = GetComponent<BoxCollider2D>();
-        Debug.Log("Initial Size: " + playerCollider.size);
+        //Store the initial collider size
 
         actionButtonA = "MoveLeft";
         actionButtonD = "MoveRight";
         actionButtonK = "Jump";
-        actionButtonL = "Push";
+        actionButtonL = "Crouch";
     }
 
     void Update()
@@ -80,6 +86,7 @@ public class PlayerControllerScript : MonoBehaviour
         else if (isOnGround && !isCrouching)
         {
             playerCollider.size = initColliderSize;
+            playerCollider.offset = initColliderOffset;
         }
         
         if (Input.GetKey(KeyCode.A))
