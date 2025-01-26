@@ -41,6 +41,16 @@ public class PlayerControllerScript : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        GameObject bc = GameObject.FindWithTag("ButtonContainerTag");
+        if(bc != null) {
+            buttonA = bc.gameObject.transform.GetChild(0).GetComponent<Button>();
+            buttonD = bc.gameObject.transform.GetChild(1).GetComponent<Button>();
+            buttonK = bc.gameObject.transform.GetChild(2).GetComponent<Button>();
+            buttonL = bc.gameObject.transform.GetChild(3).GetComponent<Button>();
+        }
+        else {
+            Debug.Log("Couldn't find Object with ButtonContainer tag!");
+        }
     }
 
     void Start()
@@ -148,7 +158,7 @@ public class PlayerControllerScript : MonoBehaviour
     private void ResetPlayer()
     {
         playerCollider.size = initColliderSize;
-        playerCollider.offset = new Vector2(0f, 0f);
+        //playerCollider.offset = new Vector2(0f, 0f); //better to handle the offset via the editor
         jumpForce = 20f;
         isCrouching = false;
     }
