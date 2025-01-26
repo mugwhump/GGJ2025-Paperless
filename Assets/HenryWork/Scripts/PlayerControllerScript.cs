@@ -201,7 +201,7 @@ public class PlayerControllerScript : MonoBehaviour
     private void HandleCrouch(Vector2 newSize)
     {
         isCrouching = true;
-        playerCollider.offset = new Vector2(0f, -0.7f);
+        //playerCollider.offset = new Vector2(0f, -0.7f);
         playerCollider.size = newSize;
 
     }
