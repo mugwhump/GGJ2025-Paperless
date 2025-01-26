@@ -23,13 +23,24 @@ public class PlayerControllerScript : MonoBehaviour
     public string actionButtonK;
     public string actionButtonL;
 
+    // Animation
+    private Animator _animator;
+    private Rigidbody2D _rigidbody2D;
 
     // UI
     [SerializeField] private Button buttonA;
     [SerializeField] private Button buttonD;
     [SerializeField] private Button buttonK;
     [SerializeField] private Button buttonL;
+    private SpriteRenderer _spriteRenderer;
 
+
+    private void Awake()
+    {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+    }
 
     void Start()
     {
@@ -38,7 +49,7 @@ public class PlayerControllerScript : MonoBehaviour
         Debug.Log("Initial Size: " + playerCollider.size);
 
         actionButtonA = "MoveLeft";
-        actionButtonD = "SprintRight";
+        actionButtonD = "MoveRight";
         actionButtonK = "Jump";
         actionButtonL = "Push";
     }
@@ -53,7 +64,7 @@ public class PlayerControllerScript : MonoBehaviour
 
         if (!isOnGround)
         {
-            playerCollider.size = new Vector2(1.0f, 3.0f);
+            // playerCollider.size = new Vector2(1.0f, 3.0f);
         }
         else if (isOnGround && !isCrouching)
         {
@@ -86,9 +97,16 @@ public class PlayerControllerScript : MonoBehaviour
             ResetPlayer();
         }
 
-
+        // Update the rotation
+        if (facingRight)
+        {
+            _spriteRenderer.flipX = false;
+        }
+        else
+        {
+            _spriteRenderer.flipX = true;
+        }
     }
-
 
     private void ActionHandler(string action)
     {
@@ -119,6 +137,8 @@ public class PlayerControllerScript : MonoBehaviour
                 ResetPlayer();
                 break;
         }
+
+        _animator.SetBool("isMoving", isOnGround && Mathf.Abs(_rigidbody2D.linearVelocityX) >= 10);
 
     }
 
@@ -193,8 +213,8 @@ public class PlayerControllerScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
+            Debug.Log("ground");
             isOnGround = true;
         }
-
     }
 }
