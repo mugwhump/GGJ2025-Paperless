@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.037, y: 0.009}
+  m_AnchoredPosition: {x: 0.216, y: 0.058}
   m_SizeDelta: {x: 1.8007, y: 0.5037}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &8445807003575565021
@@ -60,7 +60,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 900
   m_TargetDisplay: 0
 --- !u!114 &2206018884968310620
 MonoBehaviour:
@@ -137,7 +137,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.044, y: -0.016}
-  m_SizeDelta: {x: 1.9423, y: 0.3}
+  m_SizeDelta: {x: 2.5, y: 0.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3218676688919744365
 CanvasRenderer:
@@ -169,8 +169,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: This is a part of an <color=red><b>Push</b></color> word piece.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2a0d250d860e74880b33abdcb4a9da2a, type: 2}
+  m_sharedMaterial: {fileID: 21280864327797902, guid: 2a0d250d860e74880b33abdcb4a9da2a,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -194,7 +195,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.1
+  m_fontSize: 0.25
   m_fontSizeBase: 0.25
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -232,7 +233,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0.11794424, w: 0}
+  m_margin: {x: 0, y: -0.12296891, z: 0.11794424, w: -0.0853951}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -266,8 +267,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.66, y: 2.98, z: 10}
-  m_LocalScale: {x: 3, y: 4.1097, z: 3}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6661492479119617518}
   m_Father: {fileID: 0}
@@ -315,13 +316,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ce3e34e4bb1a7cd4e830e83b3a2ca193, type: 3}
+  m_SortingOrder: 100
+  m_Sprite: {fileID: 21300000, guid: be4dc05b56f8db54d9ebe15f157648b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 2.5989842, y: 1.1517913}
+  m_Size: {x: 3.59, y: 1.9}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
