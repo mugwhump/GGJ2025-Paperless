@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PlayerControllerScript : MonoBehaviour
 {
-    private static readonly int IS_MOVING_ANIMATOR = Animator.StringToHash("isMoving");
+    private static readonly int IS_MOVING_ANIMATOR = Animator.StringToHash("isWalking");
     private static readonly int IS_GROUNDED_ANIMATOR = Animator.StringToHash("isGrounded");
     private static readonly int jumpTrig = Animator.StringToHash("JumpTrigger");
 
