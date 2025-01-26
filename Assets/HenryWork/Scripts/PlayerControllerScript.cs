@@ -35,11 +35,8 @@ public class PlayerControllerScript : MonoBehaviour
     private Vector2 _lastPosition;
 
     // UI
-    // [SerializeField] private Button buttonA;
-    // [SerializeField] private Button buttonD;
-    // [SerializeField] private Button buttonK;
-    // [SerializeField] private Button buttonL;
     private SpriteRenderer _spriteRenderer;
+    [SerializeField] private Image[] buttonImgs;
 
 
     private void Awake()
@@ -80,17 +77,6 @@ public class PlayerControllerScript : MonoBehaviour
     {
         isOnGround = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.5f, 1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
 
-        //if (Input.GetKey(KeyCode.X) && isOnGround)
-        //{
-        //    playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, jumpForce);
-        //}
-        // // set button color
-        // buttonA.targetGraphic.color = Input.GetKey(KeyCode.A) ? buttonA.colors.pressedColor : buttonA.colors.normalColor;
-        // buttonD.targetGraphic.color = Input.GetKey(KeyCode.D) ? buttonD.colors.pressedColor : buttonD.colors.normalColor;
-        // buttonK.targetGraphic.color = Input.GetKey(KeyCode.K) ? buttonK.colors.pressedColor : buttonK.colors.normalColor;
-        // buttonL.targetGraphic.color = Input.GetKey(KeyCode.L) ? buttonL.colors.pressedColor : buttonL.colors.normalColor;
-
-
         if (isOnGround && !isCrouching)
         {
             playerCollider.size = initColliderSize;
@@ -99,21 +85,25 @@ public class PlayerControllerScript : MonoBehaviour
         
         if (Input.GetKey(KeyCode.A))
         {
+            buttonImgs[0].color = new Color(1, 1, 1, 0.5f);
             ActionHandler(actionButtonA);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
+            buttonImgs[1].color = new Color(1, 1, 1, 0.5f);
             ActionHandler(actionButtonD);
         }
 
         if (Input.GetKeyDown(KeyCode.K))
         {
+            buttonImgs[2].color = new Color(1, 1, 1, 0.5f);
             ActionHandler(actionButtonK);
         }
 
         if (Input.GetKeyDown(KeyCode.L))
         {
+            buttonImgs[3].color = new Color(1, 1, 1, 0.5f);
             ActionHandler(actionButtonL);
             Debug.Log(playerCollider.size);
         }
@@ -190,6 +180,10 @@ public class PlayerControllerScript : MonoBehaviour
         //playerCollider.offset = new Vector2(0f, 0f); //better to handle the offset via the editor
         jumpForce = 20f;
         isCrouching = false;
+        foreach (Image img in buttonImgs)
+        {
+            img.color = Color.white; 
+        }
     }
     private void HandleInputLeft()
     {
