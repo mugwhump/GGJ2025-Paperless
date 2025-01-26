@@ -14,13 +14,13 @@ public class PlayerControllerScript : MonoBehaviour
     private BoxCollider2D playerCollider;
     private Rigidbody2D playerRb;
 
+    //public Transform groundCheck;
     // jump
     [SerializeField] private float jumpForce = 20.0f;
     private Vector2 initColliderSize; //modify via the editor, store the initial dimensions
     private Vector2 initColliderOffset; //modify via the editor, store the initial dimensions
     // ground check for jump
     private bool isOnGround = true;
-    public Transform groundCheck;
     public LayerMask groundLayer;
 
     // set button action
@@ -38,6 +38,10 @@ public class PlayerControllerScript : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     [SerializeField] private Image[] buttonImgs;
 
+    private ContactFilter2D contactFilter;
+
+    public bool IsGrounded() => playerRb.IsTouching(contactFilter);
+
 
     private void Awake()
     {
@@ -54,6 +58,8 @@ public class PlayerControllerScript : MonoBehaviour
         Debug.Log("Initial Size: " + playerCollider.size); 
         initColliderSize = playerCollider.size;       
         initColliderOffset = playerCollider.offset;
+
+        contactFilter.SetLayerMask(LayerMask.GetMask("Ground"));
         
         // GameObject bc = GameObject.FindWithTag("ButtonContainerTag");
         // if(bc != null) {
@@ -75,7 +81,9 @@ public class PlayerControllerScript : MonoBehaviour
 
     void Update()
     {
-        isOnGround = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.5f, 1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+        //isOnGround = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.5f, 1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+
+        isOnGround = IsGrounded();
 
         if (isOnGround && !isCrouching)
         {
@@ -158,7 +166,8 @@ public class PlayerControllerScript : MonoBehaviour
         Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
         if(_lastPosition != currentPosition) 
         {
-            if(isOnGround) 
+            //if(isOnGround)
+            if(IsGrounded())  
             {
                 _animator.SetBool(IsMoving, true);
             }
@@ -216,7 +225,8 @@ public class PlayerControllerScript : MonoBehaviour
     }
     private void HandleJump()
     {
-        if (isOnGround)
+        //if (isOnGround)
+        if(IsGrounded()) 
         {
             Jump();
         }
