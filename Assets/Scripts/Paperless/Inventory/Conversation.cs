@@ -47,8 +47,8 @@ namespace GGJ2025_Paperless.Assets.Scripts.Paperless.Inventory
         {
             gameObject.SetActive(true);
             transform.position = position + new Vector3(-1f, 3f, 0);
-            UpdateText();
             this.keywordSource = keywordSource;
+            UpdateText();
         }
 
         [Button]
