@@ -21,7 +21,7 @@ public class PlayerControllerScript : MonoBehaviour
     private Rigidbody2D playerRb;
 
     // jump
-    [SerializeField] private float jumpForce = 20.0f;
+    [SerializeField] private float jumpForce = 25.0f;
     private Vector2 initColliderSize; //modify via the editor, store the initial dimensions
     private Vector2 initColliderOffset; //modify via the editor, store the initial dimensions
     // ground check for jump
@@ -200,7 +200,7 @@ public class PlayerControllerScript : MonoBehaviour
         playerRb.linearVelocity = new Vector2(0, playerRb.linearVelocity.y);
         playerCollider.size = initColliderSize;
         //playerCollider.offset = new Vector2(0f, 0f); //better to handle the offset via the editor
-        jumpForce = 20f;
+        jumpForce = 25f;
         isCrouching = false;
 
     }
