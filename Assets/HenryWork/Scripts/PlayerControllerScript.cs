@@ -10,13 +10,12 @@ public class PlayerControllerScript : MonoBehaviour
     public float moveSpeed = 0f;
     public float pushForce = 100000;
     private bool isCrouching = false;
+    private float horizontalInput;
 
     private bool facingRight = true;
     private BoxCollider2D playerCollider;
     private Rigidbody2D playerRb;
 
-    //public Transform groundCheck;
-    //public LayerMask groundLayer;
     // jump
     [SerializeField] private float jumpForce = 20.0f;
     private Vector2 initColliderSize; //modify via the editor, store the initial dimensions
@@ -25,8 +24,8 @@ public class PlayerControllerScript : MonoBehaviour
     private bool isOnGround = true;
 
     // set button action
-    public string actionButtonA;
-    public string actionButtonD;
+    //public string actionButtonA;
+    //public string actionButtonD;
     public string actionButtonK;
     public string actionButtonL;
 
@@ -74,16 +73,19 @@ public class PlayerControllerScript : MonoBehaviour
         // }
         //Store the initial collider size
 
-        actionButtonA = "MoveLeft";
-        actionButtonD = "MoveRight";
+        //actionButtonA = "MoveLeft";
+        //actionButtonD = "MoveRight";
         actionButtonK = "Jump";
         actionButtonL = "Crouch";
     }
 
     void Update()
     {
+        horizontalInput = Input.GetAxis("Horizontal");
+        playerRb.linearVelocity = new Vector2(moveSpeed * horizontalInput, playerRb.linearVelocity.y);
+        facingRight = horizontalInput > 0 ? true : false;
 
-        if (moveSpeed != 0f)
+        if (horizontalInput != 0f)
         {
             if (IsGrounded())
             {
@@ -106,28 +108,24 @@ public class PlayerControllerScript : MonoBehaviour
             playerCollider.size = initColliderSize;
             playerCollider.offset = initColliderOffset;
         }
-        
-        if (Input.GetKey(KeyCode.A))
-        {
-            //buttonImgs[0].color = new Color(1, 1, 1, 0.5f);
-            ActionHandler(actionButtonA);
-        }
 
-        if (Input.GetKey(KeyCode.D))
-        {
-            //buttonImgs[1].color = new Color(1, 1, 1, 0.5f);
-            ActionHandler(actionButtonD);
-        }
+        //if (Input.GetKey(KeyCode.A))
+        //{
+        //    ActionHandler(actionButtonA);
+        //}
+
+        //if (Input.GetKey(KeyCode.D))
+        //{
+        //    ActionHandler(actionButtonD);
+        //}
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            //buttonImgs[2].color = new Color(1, 1, 1, 0.5f);
             ActionHandler(actionButtonK);
         }
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            //buttonImgs[3].color = new Color(1, 1, 1, 0.5f);
             ActionHandler(actionButtonL);
             Debug.Log(playerCollider.size);
         }
@@ -154,17 +152,8 @@ public class PlayerControllerScript : MonoBehaviour
     {
         switch (action)
         {
-            case "MoveLeft":
-                HandleInputLeft();
-                break;
-            case "MoveRight":
-                HandleInputRight(); 
-                break;
-            case "SprintLeft":
-                HandleSprintLeft();
-                break;
-            case "SprintRight":
-                HandleSprintRight();
+            case "Sprint":
+                HandleSprint();
                 break;
             case "Jump":
                 HandleJump();
@@ -190,47 +179,43 @@ public class PlayerControllerScript : MonoBehaviour
 
     private void ResetPlayer()
     {
-        moveSpeed = 0;
+        moveSpeed = 5f;
         playerRb.linearVelocity = new Vector2(0, playerRb.linearVelocity.y);
         playerCollider.size = initColliderSize;
         //playerCollider.offset = new Vector2(0f, 0f); //better to handle the offset via the editor
         jumpForce = 20f;
         isCrouching = false;
-        // Debug.Log(moveSpeed);
-        //foreach (Image img in buttonImgs)
-        //{
-        //    img.color = Color.white; 
-        //}
-    }
-    private void HandleInputLeft()
-    {
-        moveSpeed = -5f;
-        playerRb.linearVelocity = new Vector2(moveSpeed, playerRb.linearVelocity.y);
-        facingRight = false;
-    }
 
-    private void HandleInputRight()
-    {
-        moveSpeed = 5f;
-        playerRb.linearVelocity = new Vector2(moveSpeed, playerRb.linearVelocity.y);
-        facingRight = true;
     }
+    //private void HandleInputLeft()
+    //{
+    //    moveSpeed = 5f;
+    //    playerRb.linearVelocity = new Vector2(moveSpeed * horizontalInput, playerRb.linearVelocity.y);
+    //    facingRight = false;
+    //}
 
-    private void HandleSprintLeft()
-    {
-        moveSpeed = -10f;
-        jumpForce = 30f;
-        playerRb.linearVelocity = new Vector2(moveSpeed, playerRb.linearVelocity.y);
-        facingRight = false;
-    }
+    //private void HandleInputRight()
+    //{
+    //    moveSpeed = 5f;
+    //    playerRb.linearVelocity = new Vector2(moveSpeed * horizontalInput, playerRb.linearVelocity.y);
+    //    facingRight = true;
+    //}
 
-    private void HandleSprintRight()
+    private void HandleSprint()
     {
         moveSpeed = 10f;
         jumpForce = 30f;
-        playerRb.linearVelocity = new Vector2(moveSpeed, playerRb.linearVelocity.y);
-        facingRight = true;
+        //playerRb.linearVelocity = new Vector2(moveSpeed, playerRb.linearVelocity.y);
+        //facingRight = false;
     }
+
+    //private void HandleSprintRight()
+    //{
+    //    moveSpeed = 10f;
+    //    jumpForce = 30f;
+    //    playerRb.linearVelocity = new Vector2(moveSpeed, playerRb.linearVelocity.y);
+    //    facingRight = true;
+    //}
     private void HandleJump()
     {
         //if (isOnGround)
