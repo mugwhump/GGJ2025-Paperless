@@ -1,3 +1,4 @@
+using GGJ2025_Paperless.Assets.Scripts.Paperless.Inventory;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -121,13 +122,12 @@ public class PlayerControllerScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.K))
         {
-            ActionHandler(actionButtonK);
+            ActionHandler(Inventory.Instance.GetSlotAt(0)?.keyword.keywordString);
         }
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            ActionHandler(actionButtonL);
-            Debug.Log(playerCollider.size);
+            ActionHandler(Inventory.Instance.GetSlotAt(1)?.keyword.keywordString);
         }
 
         if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.L))
