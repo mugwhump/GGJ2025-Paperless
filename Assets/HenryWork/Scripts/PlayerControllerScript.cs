@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class PlayerControllerScript : MonoBehaviour
 {
+    private static readonly int IsMoving = Animator.StringToHash("isMoving");
+
     // movement
     public float moveSpeed = 5f;
     public float sprintSpeed = 10f;
@@ -28,12 +30,13 @@ public class PlayerControllerScript : MonoBehaviour
     // Animation
     private Animator _animator;
     private Rigidbody2D _rigidbody2D;
+    private Vector2 _lastPosition;
 
     // UI
-    [SerializeField] private Button buttonA;
-    [SerializeField] private Button buttonD;
-    [SerializeField] private Button buttonK;
-    [SerializeField] private Button buttonL;
+    // [SerializeField] private Button buttonA;
+    // [SerializeField] private Button buttonD;
+    // [SerializeField] private Button buttonK;
+    // [SerializeField] private Button buttonL;
     private SpriteRenderer _spriteRenderer;
 
 
@@ -53,16 +56,16 @@ public class PlayerControllerScript : MonoBehaviour
         initColliderSize = playerCollider.size;       
         initColliderOffset = playerCollider.offset;
         
-        GameObject bc = GameObject.FindWithTag("ButtonContainerTag");
-        if(bc != null) {
-            buttonA = bc.gameObject.transform.GetChild(0).GetComponent<Button>();
-            buttonD = bc.gameObject.transform.GetChild(1).GetComponent<Button>();
-            buttonK = bc.gameObject.transform.GetChild(2).GetComponent<Button>();
-            buttonL = bc.gameObject.transform.GetChild(3).GetComponent<Button>();
-        }
-        else {
-            Debug.Log("Couldn't find Object with ButtonContainer tag!");
-        }
+        // GameObject bc = GameObject.FindWithTag("ButtonContainerTag");
+        // if(bc != null) {
+        //     buttonA = bc.gameObject.transform.GetChild(0).GetComponent<Button>();
+        //     buttonD = bc.gameObject.transform.GetChild(1).GetComponent<Button>();
+        //     buttonK = bc.gameObject.transform.GetChild(2).GetComponent<Button>();
+        //     buttonL = bc.gameObject.transform.GetChild(3).GetComponent<Button>();
+        // }
+        // else {
+        //     Debug.Log("Couldn't find Object with ButtonContainer tag!");
+        // }
         //Store the initial collider size
 
         actionButtonA = "MoveLeft";
@@ -73,11 +76,11 @@ public class PlayerControllerScript : MonoBehaviour
 
     void Update()
     {
-        // set button color
-        buttonA.targetGraphic.color = Input.GetKey(KeyCode.A) ? buttonA.colors.pressedColor : buttonA.colors.normalColor;
-        buttonD.targetGraphic.color = Input.GetKey(KeyCode.D) ? buttonD.colors.pressedColor : buttonD.colors.normalColor;
-        buttonK.targetGraphic.color = Input.GetKey(KeyCode.K) ? buttonK.colors.pressedColor : buttonK.colors.normalColor;
-        buttonL.targetGraphic.color = Input.GetKey(KeyCode.L) ? buttonL.colors.pressedColor : buttonL.colors.normalColor;
+        // // set button color
+        // buttonA.targetGraphic.color = Input.GetKey(KeyCode.A) ? buttonA.colors.pressedColor : buttonA.colors.normalColor;
+        // buttonD.targetGraphic.color = Input.GetKey(KeyCode.D) ? buttonD.colors.pressedColor : buttonD.colors.normalColor;
+        // buttonK.targetGraphic.color = Input.GetKey(KeyCode.K) ? buttonK.colors.pressedColor : buttonK.colors.normalColor;
+        // buttonL.targetGraphic.color = Input.GetKey(KeyCode.L) ? buttonL.colors.pressedColor : buttonL.colors.normalColor;
 
         if (!isOnGround)
         {
@@ -156,8 +159,20 @@ public class PlayerControllerScript : MonoBehaviour
                 break;
         }
 
-        _animator.SetBool("isMoving", isOnGround && Mathf.Abs(_rigidbody2D.linearVelocityX) >= 10);
-
+        // Compare only x and y components for 2D movement
+        Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
+        if(_lastPosition != currentPosition) 
+        {
+            if(isOnGround) 
+            {
+                _animator.SetBool(IsMoving, true);
+            }
+        }
+        else
+        {
+            _animator.SetBool(IsMoving, false);
+        }
+        _lastPosition = currentPosition;
     }
 
     // -------------------- action functions -------------------- // 
@@ -234,7 +249,7 @@ public class PlayerControllerScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             Debug.Log("ground");
             isOnGround = true;
