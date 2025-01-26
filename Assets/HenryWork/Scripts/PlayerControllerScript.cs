@@ -235,15 +235,16 @@ public class PlayerControllerScript : MonoBehaviour
     }
 
     private void HandlePush() {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + (facingRight ? Vector3.right : Vector3.left), 
-        (facingRight ? Vector2.right : Vector2.left) * 3, moveSpeed * 3); 
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + Vector3.up + (facingRight ? Vector3.right : Vector3.left), 
+        (facingRight ? Vector2.right : Vector2.left) * 3, 9); 
+        Debug.Log("Checking push!");
         if(hit && hit.transform.gameObject.CompareTag("Pushable")) {
             //Debug.Log(hit);
             if(hit.transform.GetComponent<PlayerControllerScript>() != null) {
                 //Debug.Log("aw fug");
             }
             else {
-                hit.transform.Translate((facingRight ? Vector3.right : Vector3.left) * moveSpeed * 2 * Time.deltaTime);
+                hit.transform.Translate((facingRight ? Vector3.right : Vector3.left) * 6 * Time.deltaTime);
                 Debug.Log("Push!");
                 Rigidbody2D rb = hit.transform.GetComponent<Rigidbody2D>();
                 if(rb != null){
