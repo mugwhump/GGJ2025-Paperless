@@ -9,6 +9,8 @@ public class PlayerControllerScript : MonoBehaviour
     public Vector2 initColliderSize = new Vector2(1.0f, 2.63f);
     private bool isCrouching = false;
 
+    private bool facingRight = true;
+
     // jump
     [SerializeField] private float jumpForce = 20.0f;
     private bool isOnGround = true;
@@ -38,7 +40,7 @@ public class PlayerControllerScript : MonoBehaviour
         actionButtonA = "MoveLeft";
         actionButtonD = "SprintRight";
         actionButtonK = "Jump";
-        actionButtonL = "Crouch";
+        actionButtonL = "Push";
     }
 
     void Update()
@@ -52,7 +54,6 @@ public class PlayerControllerScript : MonoBehaviour
         if (!isOnGround)
         {
             playerCollider.size = new Vector2(1.0f, 3.0f);
-            Debug.Log(playerCollider.size);
         }
         else if (isOnGround && !isCrouching)
         {
@@ -111,6 +112,9 @@ public class PlayerControllerScript : MonoBehaviour
             case "Crouch":
                 HandleCrouch(new Vector2(1.0f, 1.0f));
                 break;
+            case "Push":
+                HandlePush();
+                break;
             default:
                 ResetPlayer();
                 break;
@@ -130,11 +134,13 @@ public class PlayerControllerScript : MonoBehaviour
     private void HandleInputLeft()
     {
         transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+        facingRight = false;
     }
 
     private void HandleInputRight()
     {
         transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+        facingRight = true;
     }
     private void HandleSprintLeft()
     {
@@ -160,6 +166,20 @@ public class PlayerControllerScript : MonoBehaviour
         playerCollider.offset = new Vector2(0f, -0.7f);
         playerCollider.size = newSize;
 
+    }
+
+    private void HandlePush() {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + (facingRight ? Vector3.right : Vector3.left), 
+        (facingRight ? Vector2.right : Vector2.left) * 3, moveSpeed * 3); 
+        if(hit && hit.transform.gameObject.CompareTag("Pushable")) {
+            Debug.Log(hit);
+            if(hit.transform.GetComponent<PlayerControllerScript>() != null) {
+                //Debug.Log("aw fug");
+            }
+            else {
+                hit.transform.Translate((facingRight ? Vector3.right : Vector3.left) * moveSpeed * 2 * Time.deltaTime);
+            }
+        }
     }
 
     public void Jump()
