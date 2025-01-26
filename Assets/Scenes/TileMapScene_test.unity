@@ -352,6 +352,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block_0 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1984336806617920913, guid: 9cb252fbba0067e41860ebe9593dd7db,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7414739560761756075, guid: 9cb252fbba0067e41860ebe9593dd7db,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3461,6 +3466,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1041320438420931173, guid: 383f5266e7266f84d986c20991813d98,
+        type: 3}
+      propertyPath: keyword
+      value: 
+      objectReference: {fileID: 11400000, guid: 32d8a05eeebb0854b9903d4ce31bf8fc,
+        type: 2}
     - target: {fileID: 2480951593237288409, guid: 383f5266e7266f84d986c20991813d98,
         type: 3}
       propertyPath: m_SortingOrder
@@ -3571,6 +3582,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Inventory
       objectReference: {fileID: 0}
+    - target: {fileID: 7060729523386511596, guid: 383f5266e7266f84d986c20991813d98,
+        type: 3}
+      propertyPath: keyword
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d2f9f288d3a62345ac0668d545af75a,
+        type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4807,6 +4824,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Block_0 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1984336806617920913, guid: 9cb252fbba0067e41860ebe9593dd7db,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7414739560761756075, guid: 9cb252fbba0067e41860ebe9593dd7db,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5138,6 +5160,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TileGround (1)_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 894387511808899777, guid: ab752fe3bb3180e4faf7cb1d2750373a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3038198685834525619, guid: ab752fe3bb3180e4faf7cb1d2750373a,
         type: 3}

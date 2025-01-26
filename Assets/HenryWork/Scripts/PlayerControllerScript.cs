@@ -6,6 +6,8 @@ public class PlayerControllerScript : MonoBehaviour
 {
     private static readonly int IS_MOVING_ANIMATOR = Animator.StringToHash("isWalking");
     private static readonly int IS_GROUNDED_ANIMATOR = Animator.StringToHash("isGrounded");
+    private static readonly int IS_CROUCHING_STATIC_ANIMATOR = Animator.StringToHash("isCrouchingStatic");
+    private static readonly int IS_CROUCHING_WALKING_ANIMATOR = Animator.StringToHash("isCrouchingWalking");
     private static readonly int jumpTrig = Animator.StringToHash("JumpTrigger");
 
     // movement
@@ -147,6 +149,19 @@ public class PlayerControllerScript : MonoBehaviour
         else
         {
             _spriteRenderer.flipX = true;
+        }
+
+        if(isCrouching) {
+            if(horizontalInput != 0f) {
+                Debug.Log("Crouch walking");
+                 _animator.SetBool(IS_CROUCHING_WALKING_ANIMATOR, true);
+                _animator.SetBool(IS_CROUCHING_STATIC_ANIMATOR, false); 
+            }
+            else {
+                Debug.Log("Crouch");
+                _animator.SetBool(IS_CROUCHING_STATIC_ANIMATOR, true);  
+                _animator.SetBool(IS_CROUCHING_WALKING_ANIMATOR, false); 
+            }
         }
     }
 

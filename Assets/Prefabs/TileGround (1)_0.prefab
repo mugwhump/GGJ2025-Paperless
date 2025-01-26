@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5914885888507441617}
   - component: {fileID: 7743100241935519323}
   - component: {fileID: 5299913533782202846}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TileGround (1)_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
