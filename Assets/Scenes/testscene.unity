@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 23500892}
   - component: {fileID: 23500891}
   m_Layer: 0
-  m_Name: flipbook_walk_0
+  m_Name: flipbook_walk_animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ Animator:
   m_GameObject: {fileID: 23500890}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c682eddccedbcf9489277add1199372a, type: 2}
+  m_Controller: {fileID: 9100000, guid: a0174a702df0ac149a258e766b56c37c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -223,7 +223,7 @@ Transform:
   m_GameObject: {fileID: 23500890}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.5967884, y: -1.94236, z: 0}
+  m_LocalPosition: {x: 4.852, y: -3.549, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 1889694137}
   - component: {fileID: 1889694136}
   m_Layer: 0
-  m_Name: flipbook_jump_0
+  m_Name: flipbook_jump_animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -630,7 +630,7 @@ Animator:
   m_GameObject: {fileID: 1889694135}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cca2f0a6912da47479f00675e03b6bce, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4ed8df381f0881a48afe03bf4a689a92, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
