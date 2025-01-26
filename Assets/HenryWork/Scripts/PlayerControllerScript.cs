@@ -12,14 +12,17 @@ public class PlayerControllerScript : MonoBehaviour
     private bool isCrouching = false;
 
     private bool facingRight = true;
+    private BoxCollider2D playerCollider;
+    private Rigidbody2D playerRb;
 
     // jump
     [SerializeField] private float jumpForce = 20.0f;
-    private bool isOnGround = true;
-    private Rigidbody2D playerRb;
-    private BoxCollider2D playerCollider;
     private Vector2 initColliderSize; //modify via the editor, store the initial dimensions
     private Vector2 initColliderOffset; //modify via the editor, store the initial dimensions
+    // ground check for jump
+    private bool isOnGround = true;
+    public Transform groundCheck;
+    public LayerMask groundLayer;
 
     // set button action
     public string actionButtonA;
@@ -76,17 +79,20 @@ public class PlayerControllerScript : MonoBehaviour
 
     void Update()
     {
+        isOnGround = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.5f, 1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
+
+        //if (Input.GetKey(KeyCode.X) && isOnGround)
+        //{
+        //    playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, jumpForce);
+        //}
         // // set button color
         // buttonA.targetGraphic.color = Input.GetKey(KeyCode.A) ? buttonA.colors.pressedColor : buttonA.colors.normalColor;
         // buttonD.targetGraphic.color = Input.GetKey(KeyCode.D) ? buttonD.colors.pressedColor : buttonD.colors.normalColor;
         // buttonK.targetGraphic.color = Input.GetKey(KeyCode.K) ? buttonK.colors.pressedColor : buttonK.colors.normalColor;
         // buttonL.targetGraphic.color = Input.GetKey(KeyCode.L) ? buttonL.colors.pressedColor : buttonL.colors.normalColor;
 
-        if (!isOnGround)
-        {
-            // playerCollider.size = new Vector2(1.0f, 3.0f);
-        }
-        else if (isOnGround && !isCrouching)
+
+        if (isOnGround && !isCrouching)
         {
             playerCollider.size = initColliderSize;
             playerCollider.offset = initColliderOffset;
@@ -186,25 +192,28 @@ public class PlayerControllerScript : MonoBehaviour
     }
     private void HandleInputLeft()
     {
-        transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+        playerRb.linearVelocity = new Vector2(-moveSpeed, playerRb.linearVelocity.y);
         facingRight = false;
     }
 
     private void HandleInputRight()
     {
-        transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+        playerRb.linearVelocity = new Vector2(moveSpeed, playerRb.linearVelocity.y);
         facingRight = true;
     }
+
     private void HandleSprintLeft()
     {
         jumpForce = 30f;
-        transform.Translate(Vector3.left * sprintSpeed * Time.deltaTime);
-
+        playerRb.linearVelocity = new Vector2(-sprintSpeed, playerRb.linearVelocity.y);
+        facingRight = false;
     }
+
     private void HandleSprintRight()
     {
         jumpForce = 30f;
-        transform.Translate(Vector3.right * sprintSpeed * Time.deltaTime);
+        playerRb.linearVelocity = new Vector2(sprintSpeed, playerRb.linearVelocity.y);
+        facingRight = true;
     }
     private void HandleJump()
     {
@@ -242,17 +251,15 @@ public class PlayerControllerScript : MonoBehaviour
 
     public void Jump()
     {
-        playerRb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
-        isOnGround = false;
-        playerRb.linearVelocity = new Vector3(playerRb.linearVelocity.x, jumpForce, 0);
+        playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, jumpForce);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
-        {
-            Debug.Log("ground");
-            isOnGround = true;
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+    //    {
+    //        Debug.Log("ground");
+    //        isOnGround = true;
+    //    }
+    //}
 }
