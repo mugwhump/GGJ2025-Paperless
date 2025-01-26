@@ -52,7 +52,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2380087654297898304}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7db1d1953dc7bc24ba21c79d9b368451, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3793414476602573622, guid: a1cd56bf97050bb4b8121fc4531e6616,
+  m_Sprite: {fileID: -8539784091413712204, guid: 0ff1cc54130066c4286e05390118e2ee,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5524157003210737658}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 62b7ca5fd2bb82b46b1fac2a341041e7, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -640,7 +640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8539784091413712204, guid: 0ff1cc54130066c4286e05390118e2ee,
+  m_Sprite: {fileID: -3793414476602573622, guid: a1cd56bf97050bb4b8121fc4531e6616,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -742,7 +742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e1daffbb9b7bd94885d41c403923468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyword: {fileID: 11400000, guid: 0d2f9f288d3a62345ac0668d545af75a, type: 2}
+  keyword: {fileID: 0}
   image: {fileID: 6045184406603068657}
   borderImage: {fileID: 6689444998089546479}
 --- !u!1 &9016610057187959416
@@ -836,6 +836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e1daffbb9b7bd94885d41c403923468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyword: {fileID: 11400000, guid: 85b0cefd0db3c7a438bd7e8f9edb03ec, type: 2}
+  keyword: {fileID: 0}
   image: {fileID: 7090047295790966956}
   borderImage: {fileID: 362672965740523664}
