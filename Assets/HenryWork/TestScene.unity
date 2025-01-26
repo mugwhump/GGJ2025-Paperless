@@ -1084,6 +1084,10 @@ MonoBehaviour:
   moveRight: 0
   doJump: 0
   jumpForce: 5
+  actionButtonA: 
+  actionButtonD: 
+  actionButtonK: 
+  actionButtonL: 
   buttonA: {fileID: 1842398667}
   buttonD: {fileID: 2067492451}
   buttonK: {fileID: 419787081}
@@ -1891,7 +1895,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
 --- !u!114 &1889381291
 MonoBehaviour:
   m_ObjectHideFlags: 0

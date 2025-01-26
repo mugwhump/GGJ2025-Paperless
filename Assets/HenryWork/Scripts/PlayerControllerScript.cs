@@ -3,7 +3,9 @@ using UnityEngine.UI;
 
 public class PlayerControllerScript : MonoBehaviour
 {
+    // movement
     public float moveSpeed = 5f;
+    public float sprintSpeed = 10f;
     public bool moveLeft = false;
     public bool moveRight = false;
     public bool doJump = false;
@@ -96,6 +98,10 @@ public class PlayerControllerScript : MonoBehaviour
         transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
     }
 
+    private void Sprint()
+    {
+        transform.Translate(Vector3.left * sprintSpeed * Time.deltaTime);
+    }
     private void HandleJump()
     {
         if (isOnGround)
