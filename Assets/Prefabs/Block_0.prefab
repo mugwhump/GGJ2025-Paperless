@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7414739560761756075}
   - component: {fileID: 2332740898039151579}
-  - component: {fileID: 1263230717474526959}
-  - component: {fileID: 6059062172797603147}
+  - component: {fileID: 6708368100736301611}
+  - component: {fileID: 8944780734177650721}
   m_Layer: 0
   m_Name: Block_0
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1263230717474526959
+--- !u!61 &6708368100736301611
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,9 +134,9 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 11.27, y: 4.15}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!50 &6059062172797603147
+--- !u!50 &8944780734177650721
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -144,14 +144,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984336806617920913}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -162,4 +162,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
