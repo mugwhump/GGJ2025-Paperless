@@ -28,8 +28,7 @@ public class PlayerControllerScript : MonoBehaviour
     private bool isOnGround = true;
 
     // set button action
-    //public string actionButtonA;
-    //public string actionButtonD;
+
     public string actionButtonK;
     public string actionButtonL;
 
@@ -65,20 +64,7 @@ public class PlayerControllerScript : MonoBehaviour
 
         contactFilter.SetLayerMask(LayerMask.GetMask("Ground"));
         
-        // GameObject bc = GameObject.FindWithTag("ButtonContainerTag");
-        // if(bc != null) {
-        //     buttonA = bc.gameObject.transform.GetChild(0).GetComponent<Button>();
-        //     buttonD = bc.gameObject.transform.GetChild(1).GetComponent<Button>();
-        //     buttonK = bc.gameObject.transform.GetChild(2).GetComponent<Button>();
-        //     buttonL = bc.gameObject.transform.GetChild(3).GetComponent<Button>();
-        // }
-        // else {
-        //     Debug.Log("Couldn't find Object with ButtonContainer tag!");
-        // }
-        //Store the initial collider size
-
-        //actionButtonA = "MoveLeft";
-        //actionButtonD = "MoveRight";
+ 
         actionButtonK = "Jump";
         actionButtonL = "Crouch";
     }
@@ -116,15 +102,7 @@ public class PlayerControllerScript : MonoBehaviour
             playerCollider.offset = initColliderOffset;
         }
 
-        //if (Input.GetKey(KeyCode.A))
-        //{
-        //    ActionHandler(actionButtonA);
-        //}
-
-        //if (Input.GetKey(KeyCode.D))
-        //{
-        //    ActionHandler(actionButtonD);
-        //}
+   
 
         if (Input.GetKeyDown(KeyCode.K))
         {
@@ -204,35 +182,16 @@ public class PlayerControllerScript : MonoBehaviour
         isCrouching = false;
 
     }
-    //private void HandleInputLeft()
-    //{
-    //    moveSpeed = 5f;
-    //    playerRb.linearVelocity = new Vector2(moveSpeed * horizontalInput, playerRb.linearVelocity.y);
-    //    facingRight = false;
-    //}
 
-    //private void HandleInputRight()
-    //{
-    //    moveSpeed = 5f;
-    //    playerRb.linearVelocity = new Vector2(moveSpeed * horizontalInput, playerRb.linearVelocity.y);
-    //    facingRight = true;
-    //}
 
     private void HandleSprint()
     {
         moveSpeed = 10f;
         jumpForce = 30f;
-        //playerRb.linearVelocity = new Vector2(moveSpeed, playerRb.linearVelocity.y);
-        //facingRight = false;
+       
     }
 
-    //private void HandleSprintRight()
-    //{
-    //    moveSpeed = 10f;
-    //    jumpForce = 30f;
-    //    playerRb.linearVelocity = new Vector2(moveSpeed, playerRb.linearVelocity.y);
-    //    facingRight = true;
-    //}
+ 
     private void HandleJump()
     {
         //if (isOnGround)
