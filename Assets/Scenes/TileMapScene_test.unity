@@ -469,12 +469,12 @@ PrefabInstance:
     - target: {fileID: 6033343220281345643, guid: 9cbed4365c77f2c42a81ac2c7884438b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.23
+      value: 6.019999
       objectReference: {fileID: 0}
     - target: {fileID: 6033343220281345643, guid: 9cbed4365c77f2c42a81ac2c7884438b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.25
+      value: 0.17000008
       objectReference: {fileID: 0}
     - target: {fileID: 6033343220281345643, guid: 9cbed4365c77f2c42a81ac2c7884438b,
         type: 3}
@@ -1753,12 +1753,12 @@ PrefabInstance:
     - target: {fileID: 645741411618185594, guid: 6877c735c07668d469b6d6794ac109eb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.4
+      value: 6.22
       objectReference: {fileID: 0}
     - target: {fileID: 645741411618185594, guid: 6877c735c07668d469b6d6794ac109eb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.13
+      value: 1.95
       objectReference: {fileID: 0}
     - target: {fileID: 645741411618185594, guid: 6877c735c07668d469b6d6794ac109eb,
         type: 3}
@@ -1799,6 +1799,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4688567635872595230, guid: 6877c735c07668d469b6d6794ac109eb,
+        type: 3}
+      propertyPath: m_text
+      value: This is a part of a <color=red><b>Push</b></color> word piece.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4688567635872595230, guid: 6877c735c07668d469b6d6794ac109eb,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7182638686592853777, guid: 6877c735c07668d469b6d6794ac109eb,
         type: 3}

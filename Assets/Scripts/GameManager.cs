@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void StartGame() {
-        SceneManager.LoadScene("TileMapScene_test");
+        SceneManager.LoadScene("TileMapScene");
     }
     
     public void WinGame() {
