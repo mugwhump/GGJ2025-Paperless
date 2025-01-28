@@ -81,6 +81,10 @@ namespace Platformer.Mechanics
                     jumpState = JumpState.Jumping;
                     jump = true;
                     stopJump = false;
+                    if (jumpAudio != null && audioSource != null)
+                    {
+                        audioSource.PlayOneShot(jumpAudio);
+                    }
                     break;
                 case JumpState.Jumping:
                     if (!IsGrounded)

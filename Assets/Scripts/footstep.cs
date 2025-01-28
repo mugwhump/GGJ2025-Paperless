@@ -1,36 +1,57 @@
 using UnityEngine;
 using System.Collections;
 
-
 public class footstep: MonoBehaviour
 {
-    private AudioSource audioSource;
-    [SerializeField] private float footstepInterval = 0.5f; // 脚步声间隔时间
-    [SerializeField] private float loopDuration = 1f; // 控制音频循环的持续时间
+    private AudioSource footstepAudioSource;
+    private AudioSource jumpAudioSource;
+    [SerializeField] private float footstepInterval = 0.5f;
+    [SerializeField] private float loopDuration = 1f;
     private float lastStepTime;
+    private Animator animator; // Reference to the animator
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        // 设置AudioSource的loop参数
-        audioSource.loop = true;
+        // Get both audio sources
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        footstepAudioSource = audioSources[0]; // First audio source for footsteps
+        jumpAudioSource = audioSources[1]; // Second audio source for jump
+        
+        footstepAudioSource.loop = true;
+        jumpAudioSource.loop = false; // Make sure jump sound doesn't loop
+        
+        animator = GetComponent<Animator>(); // Get the animator component
     }
 
     void Update()
     {
-        // 检查是否按下A或D键，并确保与上一次播放有足够的时间间隔
+        // Existing footstep logic
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && 
             Time.time - lastStepTime >= footstepInterval)
         {
             StartCoroutine(PlayFootstepSound());
             lastStepTime = Time.time;
         }
+
+        // Jump sound logic
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("MC_jump_start"))
+        {
+            PlayJumpSound();
+        }
     }
 
     private IEnumerator PlayFootstepSound()
     {
-        audioSource.Play();
+        footstepAudioSource.Play();
         yield return new WaitForSeconds(loopDuration);
-        audioSource.Stop();
+        footstepAudioSource.Stop();
+    }
+
+    private void PlayJumpSound()
+    {
+        if (!jumpAudioSource.isPlaying)
+        {
+            jumpAudioSource.Play();
+        }
     }
 }
