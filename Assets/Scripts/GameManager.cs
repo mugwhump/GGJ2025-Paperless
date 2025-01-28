@@ -23,4 +23,8 @@ public class GameManager : MonoBehaviour
     public void WinGame() {
         SceneManager.LoadScene("Main_Menu");
     }
+
+    public void FuckingDie() {
+        SceneManager.LoadScene("Game_Over");
+    }
 }

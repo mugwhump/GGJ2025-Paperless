@@ -14,8 +14,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Victory_Screen.unity
     guid: 15c0447f701ab5d48a67e38959a3623b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TileMapScene_test.unity
     guid: e6f511e0389447e45b3701ee2e96930d
+  - enabled: 1
+    path: Assets/Scenes/Game_Over.unity
+    guid: 668e7b4df2f610f4d85bc8979270e7e8
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
