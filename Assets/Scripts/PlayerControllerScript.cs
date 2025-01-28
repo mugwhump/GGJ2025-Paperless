@@ -73,7 +73,13 @@ public class PlayerControllerScript : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         playerRb.linearVelocity = new Vector2(moveSpeed * horizontalInput, playerRb.linearVelocity.y);
-        facingRight = horizontalInput > 0 ? true : false;
+        
+        if(horizontalInput > 0){
+            facingRight = true;
+        }
+        else if(horizontalInput < 0){
+            facingRight = false;
+        }
 
         // ================ Animator ==================================================================================
         if (horizontalInput != 0f)
