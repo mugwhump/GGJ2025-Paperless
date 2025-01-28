@@ -15,8 +15,7 @@ public class footstep: MonoBehaviour
         // Get both audio sources
         AudioSource[] audioSources = GetComponents<AudioSource>();
         footstepAudioSource = audioSources[0]; // First audio source for footsteps
-        jumpAudioSource = audioSources[1]; // Second audio source for jump
-        
+
         footstepAudioSource.loop = true;
         jumpAudioSource.loop = false; // Make sure jump sound doesn't loop
         
