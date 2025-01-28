@@ -247,7 +247,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      burrowed_snake_0: 8347470545265941354
+      burrowed_snake_1: 3877758572676584612
+      burrowed_snake_2: -4601605607873313295
+      burrowed_snake_3: -6279546191427766045
+      burrowed_snake_4: -4009347069113157274
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
