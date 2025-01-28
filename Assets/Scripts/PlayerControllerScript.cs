@@ -83,12 +83,15 @@ public class PlayerControllerScript : MonoBehaviour
 
         isOnGround = IsGrounded();
 
+        if(!isOnGround) {
+            unCrouch();
+        }
+
         // ================ Animator ==================================================================================
         if (isOnGround && !isCrouching)
         {
             _animator.SetBool(IS_WALKING_ANIMATOR, horizontalInput != 0f);
-            playerCollider.size = initColliderSize;
-            playerCollider.offset = initColliderOffset;
+            unCrouch();
         }
         
         _animator.SetBool(IS_GROUNDED_ANIMATOR, isOnGround);
@@ -149,7 +152,7 @@ public class PlayerControllerScript : MonoBehaviour
                 HandleJump();
                 break;
             case "Crouch":
-                HandleCrouch(new Vector2(1.0f, 1.0f));
+                HandleCrouch();
                 break;
             case "Push":
                 HandlePush();
@@ -171,10 +174,14 @@ public class PlayerControllerScript : MonoBehaviour
     {
         moveSpeed = 5f;
         playerRb.linearVelocity = new Vector2(0, playerRb.linearVelocity.y);
-        playerCollider.size = initColliderSize;
         jumpForce = 25f;
-        isCrouching = false;
+        unCrouch();
+    }
 
+    private void unCrouch() {
+        playerCollider.offset = initColliderOffset;
+        playerCollider.size = initColliderSize;
+        isCrouching = false;
     }
 
 
@@ -194,11 +201,11 @@ public class PlayerControllerScript : MonoBehaviour
             Jump();
         }
     }
-    private void HandleCrouch(Vector2 newSize)
+    private void HandleCrouch()
     {
         isCrouching = true;
-        //playerCollider.offset = new Vector2(0f, -0.7f);
-        playerCollider.size = newSize;
+        playerCollider.offset = new Vector2(initColliderOffset.x, initColliderOffset.y - initColliderSize.y / 4);
+        playerCollider.size = new Vector2(initColliderSize.x, initColliderSize.y / 2);
 
     }
 
