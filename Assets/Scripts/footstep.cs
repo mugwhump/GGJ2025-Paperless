@@ -33,11 +33,6 @@ public class footstep: MonoBehaviour
             lastStepTime = Time.time;
         }
 
-        // Jump sound logic
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("MC_jump_start"))
-        {
-            PlayJumpSound();
-        }
     }
 
     private IEnumerator PlayFootstepSound()
