@@ -14,7 +14,7 @@ public class PlayerControllerScript : MonoBehaviour
     public float moveSpeed = 0f;
     public float pushForce = 100000;
     private bool isCrouching = false;
-    private float horizontalInput;
+    public float horizontalInput; //TODO: debugging, make private again
 
     private bool facingRight = true;
     private BoxCollider2D playerCollider;
@@ -84,24 +84,14 @@ public class PlayerControllerScript : MonoBehaviour
         isOnGround = IsGrounded();
 
         // ================ Animator ==================================================================================
-        if (horizontalInput != 0f && isOnGround)
-        {
-            _animator.SetBool(IS_WALKING_ANIMATOR, true);
-        }
-        else
-        {
-            _animator.SetBool(IS_WALKING_ANIMATOR, false);
-            //playerCollider.offset = initColliderOffset;
-        }
-        
-        _animator.SetBool(IS_GROUNDED_ANIMATOR, isOnGround);
-
         if (isOnGround && !isCrouching)
         {
+            _animator.SetBool(IS_WALKING_ANIMATOR, horizontalInput != 0f);
             playerCollider.size = initColliderSize;
             playerCollider.offset = initColliderOffset;
         }
-
+        
+        _animator.SetBool(IS_GROUNDED_ANIMATOR, isOnGround);
    
 
         if (Input.GetKeyDown(KeyCode.K))
@@ -132,7 +122,7 @@ public class PlayerControllerScript : MonoBehaviour
 
         if(isCrouching) {
             if(horizontalInput != 0f) {
-                Debug.Log("Crouch walking");
+                Debug.Log("Crouch walking ");
                  _animator.SetBool(IS_CROUCHING_WALKING_ANIMATOR, true);
                 _animator.SetBool(IS_CROUCHING_STATIC_ANIMATOR, false); 
             }
@@ -141,6 +131,10 @@ public class PlayerControllerScript : MonoBehaviour
                 _animator.SetBool(IS_CROUCHING_STATIC_ANIMATOR, true);  
                 _animator.SetBool(IS_CROUCHING_WALKING_ANIMATOR, false); 
             }
+        }
+        else {
+            _animator.SetBool(IS_CROUCHING_STATIC_ANIMATOR, false); 
+            _animator.SetBool(IS_CROUCHING_WALKING_ANIMATOR, false); 
         }
     }
 
