@@ -17,6 +17,7 @@ namespace Platformer.Mechanics
         public AudioClip jumpAudio;
         public AudioClip respawnAudio;
         public AudioClip ouchAudio;
+        public AudioClip landingAudio;
 
         /// <summary>
         /// Max horizontal speed of the player.
@@ -98,6 +99,10 @@ namespace Platformer.Mechanics
                     {
                         Schedule<PlayerLanded>().player = this;
                         jumpState = JumpState.Landed;
+                        if (landingAudio != null && audioSource != null)
+                        {
+                            audioSource.PlayOneShot(landingAudio);
+                        }
                     }
                     break;
                 case JumpState.Landed:
