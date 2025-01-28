@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PlayerControllerScript : MonoBehaviour
 {
-    private static readonly int IS_MOVING_ANIMATOR = Animator.StringToHash("isWalking");
+    private static readonly int IS_WALKING_ANIMATOR = Animator.StringToHash("isWalking");
     private static readonly int IS_GROUNDED_ANIMATOR = Animator.StringToHash("isGrounded");
     private static readonly int IS_CROUCHING_STATIC_ANIMATOR = Animator.StringToHash("isCrouchingStatic");
     private static readonly int IS_CROUCHING_WALKING_ANIMATOR = Animator.StringToHash("isCrouchingWalking");
@@ -81,26 +81,20 @@ public class PlayerControllerScript : MonoBehaviour
             facingRight = false;
         }
 
+        isOnGround = IsGrounded();
+
         // ================ Animator ==================================================================================
-        if (horizontalInput != 0f)
+        if (horizontalInput != 0f && isOnGround)
         {
-            if (IsGrounded())
-            {
-                _animator.SetBool(IS_MOVING_ANIMATOR, true);
-                //playerCollider.offset = new Vector2(playerCollider.offset.x, -0.5f);
-            }
+            _animator.SetBool(IS_WALKING_ANIMATOR, true);
         }
         else
         {
-            _animator.SetBool(IS_MOVING_ANIMATOR, false);
+            _animator.SetBool(IS_WALKING_ANIMATOR, false);
             //playerCollider.offset = initColliderOffset;
         }
         
         _animator.SetBool(IS_GROUNDED_ANIMATOR, isOnGround);
-
-        //isOnGround = Physics2D.OverlapCapsule(groundCheck.position, new Vector2(0.5f, 1f), CapsuleDirection2D.Horizontal, 0, groundLayer);
-
-        isOnGround = IsGrounded();
 
         if (isOnGround && !isCrouching)
         {
