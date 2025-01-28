@@ -13,6 +13,8 @@ public class OnVictory : MonoBehaviour
             victoryCanvasGroup.alpha = 1;
             victoryCanvasGroup.blocksRaycasts = true;
             victoryCanvasGroup.interactable = true;
+            AudioSource winMusic = GetComponent<AudioSource>();
+            winMusic.PlayOneShot(winMusic.clip);
         }
     }
 }
