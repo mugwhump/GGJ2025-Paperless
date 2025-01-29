@@ -11,7 +11,7 @@ public class PlayerControllerScript : MonoBehaviour
     private static readonly int jumpTrig = Animator.StringToHash("JumpTrigger");
 
     // movement
-    public float moveSpeed = 0f;
+    public float moveSpeed = 5f;
     public float pushForce = 100000;
     private bool isCrouching = false;
     public float horizontalInput; //TODO: debugging, make private again
@@ -65,8 +65,8 @@ public class PlayerControllerScript : MonoBehaviour
         contactFilter.SetLayerMask(LayerMask.GetMask("Ground"));
         
  
-        actionButtonK = "Jump";
-        actionButtonL = "Crouch";
+        actionButtonK = "";
+        actionButtonL = "";
     }
 
     void Update()
@@ -211,7 +211,7 @@ public class PlayerControllerScript : MonoBehaviour
 
     private void HandlePush() {
         RaycastHit2D hit = Physics2D.Raycast(transform.position + Vector3.up + (facingRight ? Vector3.right : Vector3.left), 
-        (facingRight ? Vector2.right : Vector2.left) * 3, 9); 
+        (facingRight ? Vector2.right : Vector2.left) * 2, 3); 
         Debug.Log("Checking push!");
         if(hit && hit.transform.gameObject.CompareTag("Pushable")) {
             //Debug.Log(hit);
