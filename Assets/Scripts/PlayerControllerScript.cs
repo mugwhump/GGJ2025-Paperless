@@ -8,12 +8,15 @@ public class PlayerControllerScript : MonoBehaviour
     private static readonly int IS_GROUNDED_ANIMATOR = Animator.StringToHash("isGrounded");
     private static readonly int IS_CROUCHING_STATIC_ANIMATOR = Animator.StringToHash("isCrouchingStatic");
     private static readonly int IS_CROUCHING_WALKING_ANIMATOR = Animator.StringToHash("isCrouchingWalking");
+    private static readonly int IS_SPRINTING_ANIMATOR = Animator.StringToHash("isSprinting");
     private static readonly int jumpTrig = Animator.StringToHash("JumpTrigger");
 
     // movement
-    public float moveSpeed = 5f;
+    public float walkSpeed = 5f;
+    public float sprintSpeed = 10f;
     public float pushForce = 100000;
     private bool isCrouching = false;
+    private bool isSprinting = false;
     public float horizontalInput; //TODO: debugging, make private again
 
     private bool facingRight = true;
@@ -41,6 +44,11 @@ public class PlayerControllerScript : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     [SerializeField] private Image[] buttonImgs;
 
+    // Audio
+    private AudioSource audioSource;
+    public AudioClip jumpAudio;
+    public AudioClip landAudio;
+
     private ContactFilter2D contactFilter;
 
     public bool IsGrounded() => playerRb.IsTouching(contactFilter);
@@ -51,13 +59,13 @@ public class PlayerControllerScript : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
-
     }
 
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
         playerCollider = GetComponent<BoxCollider2D>();
+        audioSource = GetComponent<AudioSource>();
         Debug.Log("Initial Size: " + playerCollider.size); 
         initColliderSize = playerCollider.size;       
         initColliderOffset = playerCollider.offset;
@@ -72,13 +80,32 @@ public class PlayerControllerScript : MonoBehaviour
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-        playerRb.linearVelocity = new Vector2(moveSpeed * horizontalInput, playerRb.linearVelocity.y);
+        float currentSpeed = isSprinting ? sprintSpeed : walkSpeed;
+        playerRb.linearVelocity = new Vector2(currentSpeed * horizontalInput, playerRb.linearVelocity.y);
         
         if(horizontalInput > 0){
             facingRight = true;
         }
         else if(horizontalInput < 0){
             facingRight = false;
+        }
+
+        
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            ActionHandler(Inventory.Instance?.GetSlotAt(0)?.keyword?.keywordString);
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            ActionHandler(Inventory.Instance?.GetSlotAt(1)?.keyword?.keywordString);
+        }
+        if (Input.GetKeyUp(KeyCode.K))
+        {
+            KeyUpHandler(Inventory.Instance?.GetSlotAt(0)?.keyword?.keywordString);
+        }
+        if (Input.GetKeyUp(KeyCode.L))
+        {
+            KeyUpHandler(Inventory.Instance?.GetSlotAt(1)?.keyword?.keywordString);
         }
 
         isOnGround = IsGrounded();
@@ -90,28 +117,17 @@ public class PlayerControllerScript : MonoBehaviour
         // ================ Animator ==================================================================================
         if (isOnGround && !isCrouching)
         {
-            _animator.SetBool(IS_WALKING_ANIMATOR, horizontalInput != 0f);
+            if(isSprinting) {
+                _animator.SetBool(IS_SPRINTING_ANIMATOR, horizontalInput != 0f);
+            }
+            else {
+                _animator.SetBool(IS_WALKING_ANIMATOR, horizontalInput != 0f);
+                _animator.SetBool(IS_SPRINTING_ANIMATOR, false);
+            }
             unCrouch();
         }
         
         _animator.SetBool(IS_GROUNDED_ANIMATOR, isOnGround);
-   
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            ActionHandler(Inventory.Instance?.GetSlotAt(0)?.keyword?.keywordString);
-        }
-        
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            ActionHandler(Inventory.Instance?.GetSlotAt(1)?.keyword?.keywordString);
-        }
-
-
-        if (Input.GetKeyUp(KeyCode.K) || Input.GetKeyUp(KeyCode.L))
-        {
-            ResetPlayer();
-        }
 
         // Update the rotation
         if (facingRight)
@@ -161,24 +177,35 @@ public class PlayerControllerScript : MonoBehaviour
                 ResetPlayer();
                 break;
         }
-
-        // Compare only x and y components for 2D movement
-        //Vector2 currentPosition = new Vector2(transform.position.x, transform.position.y);
-        //if(_lastPosition != currentPosition) 
-        //_lastPosition = currentPosition;
     }
 
+    private void KeyUpHandler(string action)
+    {
+        switch (action)
+        {
+            case "Sprint":
+                StopSprint();
+                break;
+            case "Crouch":
+                unCrouch();
+                break;
+            // default:
+            //     ResetPlayer();
+            //     break;
+        }
+    }
     // -------------------- action functions -------------------- // 
 
     private void ResetPlayer()
     {
-        moveSpeed = 5f;
+        walkSpeed = 5f;
         playerRb.linearVelocity = new Vector2(0, playerRb.linearVelocity.y);
         jumpForce = 25f;
-        unCrouch();
     }
 
     private void unCrouch() {
+        // TODO: prevent player from leaving crouching state while in a tunnel
+        // also prevent them from getting rid of crouch ability in that case
         playerCollider.offset = initColliderOffset;
         playerCollider.size = initColliderSize;
         isCrouching = false;
@@ -187,9 +214,12 @@ public class PlayerControllerScript : MonoBehaviour
 
     private void HandleSprint()
     {
-        moveSpeed = 10f;
-        jumpForce = 30f;
-       
+        Debug.Log("SPROONT");
+        isSprinting = true;
+    }
+    private void StopSprint() {
+        Debug.Log("STOOP SPROONT");
+        isSprinting = false;
     }
 
  
@@ -233,6 +263,10 @@ public class PlayerControllerScript : MonoBehaviour
     {
         playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, jumpForce);
         _animator.SetTrigger("JumpTrigger");
+        audioSource.PlayOneShot(jumpAudio);
+    }
+    public void LandOnGround() {
+        audioSource.PlayOneShot(landAudio);
     }
 
     //private void OnCollisionEnter2D(Collision2D collision)
